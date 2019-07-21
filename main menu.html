@@ -1,0 +1,19 @@
+{ifpages}
+    <label class="sub-menu-btn icon-list2 d-hide fl-right"></label>
+{/ifpages}
+<a href="{$page:url}" title="{$page:h1}" class="{$mobile:device:mobile,tablet=block wrap pl10px text-left}">{$page:navName}</a>
+
+{ifpages}
+<div class="submenu">
+    <span class="category-preview fl-left mr-grid m-hide t-hide">{$page:preview}</span>
+    <div class="wrap ml-grid mr-grid t-hide m-hide">
+        <h3 class="category-name">{$page:navName}</h3>
+        {$page:teaser}
+    </div>
+{/ifpages}
+    {submenu}
+        <a class="page-title primary-light block" href="{$page:url}" title="{$page:h1}">{$page:navName}</a>
+    {/submenu}
+    {ifpages}
+</div>
+{/ifpages}

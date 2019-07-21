@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <title>{$page:title}</title>
+    <meta name="keywords" content="{$meta:keywords}"/>
+    <meta name="description" content="{$meta:description}"/>
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+    {concatcss}
+    <link href="css/reset.css" rel="stylesheet" media="screen">
+    <link href="css/content.css" rel="stylesheet" media="screen">
+    <link href="css/nav.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <!-- Shopping css -->
+    <link href="css/store.css" rel="stylesheet" media="screen">
+    <!-- Additional css -->
+    <link href="css/skeleton-ui.css" rel="stylesheet" media="screen">
+    <link href="css/animation.css" rel="stylesheet" media="screen">
+    {/concatcss}
+
+    <!-- HTML5shiv and selectivizr.js IE support of HTML5 elements and CSS3 pseudo-classes, attribute selectors -->
+    <!--[if lt IE 9]><script src="js/system/ie-pack.js"></script><![endif]-->
+</head>
+<body class="{$mobile:device}">
+{device:desktop}
+<!-- PAST AFTER <body> -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+<!-- end PAST AFTER <body> -->
+{/device}
+
+<!-- Container -->
+<div id="container" class="container">
+
+    {$plugin:toastersupport}
+
+    <!-- Top bar for mobile, with button show/hide menu -->
+    <div class="top-block clearfix d-hide">
+        <label data-menu=".main_menu" data-menu-position="left" class="menu-btn fl-left icon-list2 btn large">Menu</label>
+    </div>
+
+     <!-- Header -->
+    <header class="mt20px mb30px clearfix">
+        <div class="h1 logo {$mobile:device:mobile=grid_12 text-center:tablet=grid_4 alpha:desktop=grid_3 alpha}">
+            <a href="{$website:url}" title="{$page:h1}">
+                <img src="{$plugin:widcard:bizLogo:url}" alt="Cosmétique et Esthétique en Suisse">
+            </a>
+        </div>
+
+        <div class="{$mobile:device:mobile=grid_12 text-center:tablet=grid_8 alpha:desktop=grid_9 omega alpha} mt15px t-hide m-hide">
+            <p class="grid_8 tagline alpha omega mt5px {$mobile:device:mobile=grid_12:tablet=grid_8 mb5px:desktop=fl-left}">{$header:tagline:static}</p>
+            <div class="grid_4">
+                {$search:form}
+            </div>
+                
+        </div>
+
+        <nav id="main-menu" class="{$mobile:device:mobile,tablet=primary2-bg grid_12 left:desktop=grid_12 omega alpha mt15px}">
+            {$menu:main:main menu}
+        </nav>
+    </header>
+
+    <!-- Content box -->
+    <div id="content" class="{$mobile:device:mobile,tablet=grid_12:desktop=grid_10 alpha}">
+        
+        <h1>{$page:h1}</h1>
+        <h2>{$header:content}</h2>
+        {$content:content}
+        <span class="clearfix"></span>
+        <h2>{$header:content1}</h2>
+        {$content:content1}
+        <span class="clearfix"></span>
+        <h2>{$header:content2}</h2>
+        {$content:content2}
+    </div>
+    {device:desktop}
+    <!-- Right box -->
+    <div id="right" class="sidebar grid_2 alpha omega fl-right gads">
+        {$content:ads}
+        {$content:gads:readonly} <!-- don't touch it !!! This is real google ad block -->
+    </div>
+    {/device}
+
+</div>
+
+<!-- Bottom block -->
+<div id="bottom-block" class="mt20px t-hide m-hide">
+
+    <div class="container">
+
+        {device:desktop}
+        <div class="grid_4">
+            <h3 class="fb-title">{$header:fb:static}</h3>
+            <div class="fb-like-box mb15px" data-href="{$plugin:widcard:BizFbAccount:notag}" data-height="200px" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+            <nav class="social-links">
+                <a class="btn icon gplus icon-gplus circle mr10px" target="_blank" href="{$plugin:widcard:BizGplusAccount:notag}"></a>
+                <a class="btn icon facebook icon-facebook circle mr10px" target="_blank" href="{$plugin:widcard:BizFbAccount:notag}"></a>
+                <a class="btn icon twitter icon-twitter circle" target="_blank" href="{$plugin:widcard:BizTwitterAccount:notag}"></a>
+            </nav>
+        </div>
+        {/device}
+
+        {device:desktop,tablet}
+        <div class="{$mobile:device:tablet=grid_6 alpha:desktop=grid_5 alpha omega} news-box">
+            <h3>{$header:news:static}</h3>
+            <!-- news list -->
+            <!--<ul class="news-list list-unstyled carousel" data-visible="2" data-vertical="true">
+                {$ newslist:news list short:10}
+            </ul>-->
+            <!-- news list -->
+            <ul class="news-list list-unstyled carousel" data-visible="2" data-vertical="true">
+                {$newslist:news-list:10}
+            </ul>
+        </div>
+        {/device}
+
+       <div class="{$mobile:device:mobile=grid_12 text-center:tablet=grid_6 omega:desktop=grid_3 omega}">
+            <h3>{$header:contact:static}</h3>
+            <span class="phone fs24">{$plugin:widcard:BizTelephone:notag}</span>
+            {$header:subphone:static}
+            <p class="email mt10px">
+                <a href="mailto:{$plugin:widcard:BizEmail:href}">
+                   <!-- <i class="btn icon icon-mail4 circle"></i> -->
+                    {$header:mail:static}
+                </a>
+            </p>
+            <p class="email mt10px">
+                {$plugin:widcard:bizAddress1:notag}
+            </p>
+            <p class="email mt10px">
+                {$plugin:widcard:bizAddress2:notag}
+            </p>
+            <!-- <p class="email mt10px">
+               {$ plugin:widcard:bizTelephone}
+            </p>-->
+            {device:mobile,tablet}
+            <nav class="social-links mt30px">
+                <a class="btn icon gplus icon-gplus circle icon32 mr20px" target="_blank" href="{$plugin:widcard:BizGplusAccount:notag}"></a>
+                <a class="btn icon facebook icon-facebook circle icon32 mr20px" target="_blank" href="{$plugin:widcard:BizFbAccount:notag}"></a>
+                <a class="btn icon twitter icon-twitter circle icon32" target="_blank" href="{$plugin:widcard:BizTwitterAccount:notag}"></a>
+            </nav>
+            {/device}
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="{$mobile:device:tablet=grid_6:desktop=grid_4 alpha}">{$header:footer:static}</div>
+        <div class="{$mobile:device:tablet=grid_6:desktop=grid_4}">
+            {$menu:flat}
+            <address class="mt5px">
+                {$header:footer1:static}
+            </address>
+        </div>
+        <!-- <div class="{$mobile:device:tablet=grid_12:desktop=grid_4 omega} t-hide m-hide">{$ imageonly:footer:200:static}</div>-->
+    </div>
+</footer>
+
+<!-- SCRIPTS ZONE -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.content-box .product-list').attr({
+            'data-visible' : 4,
+            'data-elScroll' : '.product-item'
+        }).addClass('carousel')
+    });
+</script>
+<script src="js/plugin/jquery.cycle2.min.js"></script>
+<script src="js/system/skeleton.min.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>
